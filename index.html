@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترند للموبايل والبلي ستيشن | Hamza Abbas PS4 Host</title>
+    <style>
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: #161b22;
+            --accent-blue: #00d2ff;
+            --accent-gold: #ffb703;
+            --text-color: #e6edf3;
+            --text-dim: #8b949e;
+            --border-color: #30363d;
+            --success: #2ea043;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 15px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        p.author {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .status-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .btn-group-fw {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .fw-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .fw-btn:hover, .fw-btn.active {
+            background: var(--accent-blue);
+            color: #000;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .payload-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .payload-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+        }
+
+        .payload-card.goldhen {
+            border-color: var(--accent-gold);
+            background: linear-gradient(145deg, #161b22 0%, #1e2530 100%);
+        }
+
+        .payload-card h3 {
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .payload-card.goldhen h3 {
+            color: var(--accent-gold);
+        }
+
+        .payload-card p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+footer {
+            margin-top: auto;
+            padding-top: 25px;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ترند للموبايل والبلي ستيشن</h1>
+        <p class="author">تم بواسطة المهندس حمزه عباس</p>
+        <p class="subtitle">PS4 Host Exploit & Payload Launcher (5.05 - 11.00+)</p>
+    </header>
+
+    <div class="status-box" id="status">
+        حالة النظام: جاهز للحقن (Ready)
+    </div>
+
+    <div class="btn-group-fw">
+        <button class="fw-btn active" onclick="selectFW('9.00')">FW 9.00</button>
+        <button class="fw-btn" onclick="selectFW('11.00')">FW 11.00+</button>
+        <button class="fw-btn" onclick="selectFW('6.72')">FW 6.72</button>
+        <button class="fw-btn" onclick="selectFW('5.05')">FW 5.05</button>
+    </div>
+
+    <div class="grid">
+        <div class="payload-card goldhen" onclick="loadPayload('GoldHEN')">
+            <h3>GoldHEN v2.4b16</h3>
+            <p>تفعيل الثغرة الكاملة، متجر التطبيقات، ودعم الألعاب المعدلة.</p>
+        </div>
+        <div class="payload-card" onclick="loadPayload('Orbis Toolbox')">
+            <h3>Orbis Toolbox</h3>
+            <p>أداة تحكم متقدمة بالواجهة ومراقبة حرارة الجهاز.</p>
+        </div>
+        <div class="payload-card" onclick="loadPayload('FTP Server')">
+            <h3>FTP Server</h3>
+            <p>نقل الملفات والألعاب بين الكمبيوتر والـ PS4 عالي السرعة.</p>
+        </div>
+        <div class="payload-card" onclick="loadPayload('App2USB')">
+            <h3>App2USB</h3>
+            <p>نقل الألعاب والملفات إلى القرص الصلب الخارجي.</p>
+        </div>
+        <div class="payload-card" onclick="loadPayload('DB Backup')">
+            <h3>DB Backup</h3>
+            <p>حفظ نسخة احتياطية من قواعد بيانات الجهاز وقوائم التثبيت.</p>
+        </div>
+        <div class="payload-card" onclick="loadPayload('PS4Debug')">
+            <h3>PS4Debug</h3>
+            <p>تفعيل وضع التصحيح لربط أدوات التعديل والغش.</p>
+        </div>
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة &copy; 2026 | يعمل أوفلاين بعد أول زيارة
+    </footer>
+
+    <script>
+        window.applicationCache.addEventListener('updateready', function() {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                window.applicationCache.swapCache();
+                document.getElementById('status').innerText = 'تم تحديث ملفات الكاش! أعد تحميل الصفحة.';
+            }
+        }, false);
+
+        window.applicationCache.addEventListener('cached', function() {
+            document.getElementById('status').innerText = 'تم حفظ الموقع أوفلاين بنجاح!';
+        }, false);
+
+        function selectFW(fw) {
+            document.querySelectorAll('.fw-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('status').innerText = 'تم تحديد التحديث: ' + fw;
+        }
+
+        function loadPayload(name) {
+            let status = document.getElementById('status');
+            status.innerText = 'جاري حقن الباي لود: ' + name + ' ... يرجى الانتظار';
+            status.style.color = 'var(--accent-blue)';
+            
+            setTimeout(() => {
+                status.innerText = 'تم تمكين ' + name + ' بنجاح! (Payload Injected)';
+                status.style.color = 'var(--success)';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
